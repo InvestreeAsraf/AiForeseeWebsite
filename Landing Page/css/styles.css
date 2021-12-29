@@ -11468,6 +11468,11 @@ p {
   padding-bottom: 1rem;
   background-color: transparent;
 }
+#mainNav:hover {
+
+  background-color: black;
+}
+
 #mainNav .navbar-toggler {
   padding: 0.75rem;
   font-size: 0.75rem;
