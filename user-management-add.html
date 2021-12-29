@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+  </head>
+  <style>
+    *{
+      list-style: none;
+      font-family: 'Mulish', sans-serif;
+    }
+    
+    body{
+      background: #F5F5F5;
+    }
+    
+    
+    .main-wrapper{
+      width: 100%;
+      height: 83px;
+      display: flex;
+    
+    
+    }
+    
+    .main-wrapper{
+      width: 100%;
+      height: 70px;
+      background: #fff;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      
+    }
+    
+     .sidebar{
+      position: fixed;
+      background: #0F214C;
+      width: 256px;
+      height: 100%;
+      transition: all 0.3s ease;
+    }
+     .sidebar {
+        margin-left: 0%;
+        width: 256px;
+    }
+     .sidebar  li a{
+        color: #fff;
+        position: relative;
+        color: #92a6e2;
+        white-space: nowrap;
+        height: 56px;
+    }
+    
+    
+     .sidebar  li a:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    
+      background: #2E6DE5;
+      display: none;
+      border-radius: 15px 50px 30px 5px;
+    }
+    
+     .sidebar  li a span.icon{
+      margin-right: 10px;
+      display: inline-block;
+    }
+    
+     .sidebar  li a span.title{
+      display: inline-block;
+    }
+    
+     .sidebar  li a:hover,
+     .sidebar  li a.active{
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    
+     .sidebar  li a:hover:before,
+     .sidebar  li a.active:before{
+      display: block;
+    }
+    
+     .main_container{
+      width: (100% - 200px);
+      margin-left: 256px;
+      padding: 15px;
+      transition: all 0.3s ease;
+    }
+    
+     .main_container .item{
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 15px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    .pagination {
+      display: inline-block;
+    }
+    
+    .pagination a {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: background-color .3s;
+      margin: 0 4px;
+    }
+    
+    .pagination a.active {
+      background-color: #E5E5E5;
+      color: red;
+      border: 1px solid #E5E5E5;
+    }
+    
+    .pagination a:hover:not(.active) {background-color: #ddd;}
+    .button2:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+    }
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  bottom: 0px;
+  background-color: #F5F5F5;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #87CC62;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 2px #87CC62;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:269px; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:269px; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal-body {padding: 2px 16px;}
+
+    </style>
+  <body style="font-family: Mulish;
+  font-style: normal;">
+    <div class="layer"></div>
+    <!-- ! Body -->
+    <div class="page-flex">
+      <!-- ! Sidebar -->
+      <aside class="sidebar"  >
+        <div class="sidebar-start" >
+          <div class="sidebar-head" style=" font-weight: bold;font-size: 24px; ">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" style="margin-left: 10px; margin-top: 10px;">
+            
+              <button class="btn btn-toggle align-items-center rounded collapsed text-white" style="font-weight:bold; font-size: 24px; ">
+                <i class="fas fa-square" ></i>
+                Scoreezy
+                <i class="fa fa-bars" aria-hidden="true" style="margin-left:60px;"></i>
+              </button>
+                
+              </a>
+              <hr style="color: #E5E5E5; margin-top: 22px;">
+              
+          </div>
+            <div class="sidebar-body">
+                <ul class="sidebar-body-menu" style="margin-left: -30px;">
+                    <li>
+                        <a class="show-cat-btn nav-link text-white" href="##">
+                          <i class="bi bi-columns-gap fa-lg"></i>
+                          <button class="btn btn-toggle align-items-center rounded collapsed text-white" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                            Dashboard
+                          </button>
+                        </a>
+                        
+                    </li>
+
+
+                    <li>
+                        <a class="show-cat-btn nav-link text-white" href="##">
+                          <i class="bi bi-cash-stack fa-lg"></i>
+                          <button class="btn btn-toggle align-items-center rounded collapsed text-white" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse1" aria-expanded="false">
+                           Transaction
+                          </button>
+                        </a>
+                       
+                    </li>
+                    <li>
+                      <a class="show-cat-btn nav-link text-white" href="##">
+                        <i class="bi bi-file-person-fill fa-lg"></i>
+                        <button class="btn btn-toggle align-items-center rounded collapsed text-white" >
+                          User Management
+                        </button>
+                      </a>
+                </li> 
+                <li>
+                  <a class="show-cat-btn nav-link text-white" href="##">
+                    <i class="bi bi-tv fa-lg"></i>
+                    <button class="btn btn-toggle align-items-center rounded collapsed text-white" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse1" aria-expanded="false">
+                      Monitoring Engine
+                    </button>
+                  </a>
+              </li>
+                <ul class="sidebar-body-menu" style="margin-left: -30px;">
+                  <li>
+                    <a class="show-cat-btn nav-link text-white" href="##">
+                      <i class="bi bi-list-ul fa-lg"></i>
+                      <button class="btn btn-toggle align-items-center rounded collapsed text-white" >
+                        History Pricing
+                      </button>
+                    </a>
+              </li>
+                
+                <li> 
+                  <a class="show-cat-btn nav-link text-white" href="##">
+                    <i class="bi bi-person-fill fa-lg"></i>
+                    <button class="btn btn-toggle align-items-center rounded collapsed text-white" >
+                      My Account
+                    </button>
+                  </a>
+              </li>
+
+                </ul>
+            </div>
+          </div>
+    </aside>
+      <div class="main-wrapper">
+        <!-- ! Main nav -->
+        <nav class="navbar navbar-expand-lg navbar-light ">
+          <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                
+                <li class="nav-item dropdown">
+                <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black; margin-top: 10px; margin-right: 10px;" href="#">
+                  <i class="fas fa-user"></i>
+                    <b>Yuli Bagus Setiawan</b> 
+                    <i class="fas fa-chevron-down" style="color: red; margin-left: 10px;"></i>
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a style="margin-left:10px; font-size: 16px; font-weight: bold;">Name</a><br>
+                      <a style="margin-left:10px; font-size: 14px; color: #777777;">Yuli Bagus</a></li>
+                    <li><a style="margin-left:10px; font-size: 16px; font-weight: bold;" >Company</a><br>
+                      <a style="margin-left:10px; font-size: 14px; color: #777777;">Aiforesee</a></li>
+                    <li><a style="margin-left:10px; font-size: 16px; font-weight: bold;" >User Role</a><br>
+                      <a style="margin-left:10px; font-size: 14px; color: #777777;">Administrator</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a style="margin-left:10px; font-size: 16px; font-weight: bold;" >Language</a><br>
+                      <select style="width: 130px; margin-left:12px; height: 40px; border-radius: 8px;" class="form-select" id="validationCustom04" >
+                        <option selected disabled value="">Language</option>
+                        <option value="member">English</option>
+                      </select></li>
+                      <button type="submit" style="font-family: Mulish;font-style: normal;font-weight: bold;font-size: 16px; line-height: 24px; margin-left: 12px; width: 130px;height: 40px;left: 288px; top: 1509px; background: #D71149; border-radius: 8px; color: white; margin-top: 10px;" class="btn" >Log Out</button>
+                  </ul>
+                </li>
+            </div>
+          </div>
+        </nav>
+    </div>
+      <div class="main_container">
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+               <div class="panel-title pull-left" style=" width: 40px;height: 40px; left: 288px; top: 114px;background: #FFFFFF;border: 1px solid #E1E1E1;box-sizing: border-box; border-radius: 8px;">
+                <i style="margin-left: 12px; margin-top:11px;" class="fas fa-chevron-left"></i> 
+               </div>
+              <div class="panel-title pull-left" style="margin-left: 10px; width: 167px;height: 32px; left: 352px; top: 120px; font-family: Mulish;font-style: normal; font-weight: bold;font-size: 24px;line-height: 32px;letter-spacing: 0.005em;color: #333333;">
+                 Add New User
+              </div>
+              <div class="clearfix"></div>
+          </div>
+      </div>
+<br>
+        
+        <div class="item" style=" border-radius: 8px;">
+            <div style="font-family: Mulish;font-style: normal; font-weight: bold;font-size: 16px; line-height: 24px;   letter-spacing: 0.005em; color: #333333;">Status<br>
+                <label class="switch">
+                    <input type="checkbox" checked >
+                    <span class="slider round"></span>
+                  </label>
+                  <label style="margin-left:5px; font-family: Mulish; font-style: normal;font-weight: normal; font-size: 16px;line-height: 140%; letter-spacing: 0.005em;color: #333333;">Active</label>                
+            </div><br>
+            
+            <div style="width :520px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em;color: #777777;">
+                <form class="needs-validation" novalidate action="../Scoreezy/user-management.html">
+                  
+                    <div class="col-lg-12" style="margin-top: 10px;">
+                      <label for="validationCustom01" class="form-label">User Role</label>
+                      <select id="disabledSelect" class="form-select" disabled>
+                        <option>Admin</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please Fill the Name
+                      </div>
+                    </div>
+                    <div class="col-lg-12" style="margin-top: 10px;">
+                        <label for="validationCustom01" class="form-label">Type</label>
+                        <select style="height: 45px;" class="form-select" id="validationCustom04" required>
+                          <option selected disabled value="">Select Type</option>
+                          <option value="member">Member</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select the type
+                        </div>
+                      </div>
+                      <div class="col-lg-12" style="margin-top: 10px;">
+                        <label for="validationCustom01" class="form-label">Name</label>
+                        <input style="height: 45px;" type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+                        <div class="invalid-feedback">
+                          Please Fill the Name
+                        </div>
+                      </div>
+                      <div class="col-lg-12" style="margin-top: 10px;">
+                        <label for="validationCustom02" class="form-label">Email</label>
+                        <input style="height: 45px;" type="text" class="form-control" id="validationCustom01" placeholder="email" required>
+                        <div class="invalid-feedback">
+                         Invalid Email Format
+                        </div>
+                      </div>
+                  
+                </div>
+        </div>
+
+        <div class="item" style=" border-radius: 8px;" style="width :520px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em;color: #777777;">
+            <div style="font-family: Mulish;font-style: normal; font-weight: bold;font-size: 16px; line-height: 24px;   letter-spacing: 0.005em; color: #333333;">Generic Scoring<br>
+            </div>
+            <hr style="color: #DDDDDD;">
+            
+            <label style="width :520px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em; float: left;" for="basic-url" >Package Name</label>
+            <label style="width :800px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em; float: right;" for="basic-url" >Price per hit</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Package Name" value="Basic" >
+                <input type="text" class="form-control" placeholder="Rp0">
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Package Name">
+                <input type="text" class="form-control" placeholder="Rp0">
+              </div>
+
+              <div style="font-family: Mulish;font-style: normal; font-weight: bold;font-size: 16px; line-height: 24px;   letter-spacing: 0.005em; color: #D71149;"><i style="color: #D71149;" class="fas fa-plus-circle"></i>Add Package<br>
+              </div>
+        </div>
+
+        <div class="item" style=" border-radius: 8px;" style="width :520px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em;color: #777777;">
+             <div style="font-family: Mulish;font-style: normal; font-weight: bold;font-size: 16px; line-height: 24px;   letter-spacing: 0.005em; color: #333333;">Customized Scoring<br>
+                </div><hr style="color: #DDDDDD;">
+            
+            <label style="width :520px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em; float: left;" for="basic-url" >Package Name</label>
+            <label style="width :800px; font-family: Mulish; font-style: normal; font-weight: normal;  font-size: 16px;  line-height: 24px;  letter-spacing: 0.005em; float: right;" for="basic-url" >Price per hit</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Package Name" value="Basic">
+                <input type="text" class="form-control" placeholder="Rp0">
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Package Name">
+                <input type="text" class="form-control" placeholder="Rp0">
+              </div>
+
+              <div style="font-family: Mulish;font-style: normal; font-weight: bold;font-size: 16px; line-height: 24px;   letter-spacing: 0.005em; color: #D71149;"><i style="color: #D71149;" class="fas fa-plus-circle"></i>Add Package<br>
+              </div>
+        </div>
+<br>
+<div class="form-group">
+        <button type="submit" class="btn" style="font-family: Mulish;font-style: normal;font-weight: bold;font-size: 16px; line-height: 24px; width: 160px;height: 48px;left: 288px; top: 1509px; background: #D71149; border-radius: 8px; color: white;" class="btn">Save</button>
+        <button type="button" style="font-family: Mulish;font-style: normal;font-weight: bold;font-size: 16px; line-height: 24px; border: 1px solid #DDDDDD;box-sizing: border-box; margin-left:10px;width: 160px;height: 48px;left: 288px; top: 1509px; background: #FFFFFF; border-radius: 8px; color: black;" class="btn">Cancel</button>
+</div>
+</form>
+      </div>
+    </div>
+            <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+    <script src="plugins/feather.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+<script>    (function () {
+  'use strict'
+  
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+  
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+  
+      form.classList.add('was-validated')
+    }, false)
+  })
+  })()</script>
